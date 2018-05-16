@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Газель <input type="checkbox"> <br>
+    Время аренды: <button onclick="">+</button> <br>
+    Пропуск в центр: <input type="checkbox"> <br>
+    от МКАД <button onclick="">+</button> <button onclick="">-</button>
+    <hr>
+
+
+    Количество <button onclick="">+</button> <button onclick="">-</button> <br>
+    Время работы <button onclick="">+</button> <br>
+    <hr>
+
+
+    <h2 class="text-center"> Упаковочные материалы </h2>
+    Пузырчатая плёнка
+    <button onclick='calcData.addBubbleSkin()' class="">+ </button>
+    <button onclick='calcData.removeBubbleSkin()'> - </button> <br> Коробка   
+    <button onclick='calcData.addBox(100)'>+</button>
+    <button onclick='calcData.removeBox(100)'>-</button> <br> Стрэйч плёнка   
+    <button onclick='calcData.addSkin(90)'>+</button>
+    <button onclick='calcData.removeSkin(90)'>-</button> <br> Картон   
+    <button onclick='calcData.addCarton(190)'>+</button>   
+    <button onclick='calcData.removeCarton(190)'>-</button> <br>   
+    <button onclick='calcData.getCounter()'>Итог</button>
+    <input type="text" id="total" class="form-control" style="width: 100px;">
+    <hr>
+
+
+
+
+
+
+    <script>
+
+        var calcData = (function () {
+            var count = 0;
+            var i = 0;
+            var interface = {};
+
+            interface.addBubbleSkin = function () {
+                count += 150;
+
+                console.log('+ Пузырчатая плёнка: ' + count);
+            };
+
+            interface.removeBubbleSkin = function () {
+                count -= 150;
+
+                console.log('- Пузырчатая плёнка: ' + count);
+            };
+
+            interface.addBox = function (e) {
+                count += e;
+                console.log('+ коробка: ' + count);
+            };
+
+            interface.removeBox = function (e) {
+                count -= e;
+                console.log('- коробка: ' + count);
+            };
+
+
+            interface.addSkin = function (e) {
+                count += e;
+                console.log('+ Стрэйч плёнка: ' + count);
+            };
+
+            interface.removeSkin = function (e) {
+                count -= e;
+                console.log('- Стрэйч плёнка: ' + count);
+            };
+
+            interface.addCarton = function (e) {
+                count += e;
+                console.log('+ Картон: ' + count);
+            };
+
+            interface.removeCarton = function (e) {
+                count -= e;
+                console.log('- Картон: ' + count);
+            };
+
+
+            interface.getCounter = function () {
+                document.getElementById('total').value = count;
+                console.log(count);
+            
+                return count;
+            }
+
+            return interface;
+        })();
+    </script>
+
+
+
+
+
+
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

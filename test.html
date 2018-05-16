@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+
+
+
+    <div class="form__container container-fluid">
+        <div class="row">
+            <div class="form col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form__auto col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                 <h3 class="text-center"> Автомобиль </h3> <hr>
+                 <div class="form__data col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">                       
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">                    
+                        Газель
+                    </div>                  
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <select>
+                            <option>Газель</option>
+                            <option>Удл. газель</option>
+                        </select>
+                    </div>                   
+                 </div>
+                 <div class="form__data col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">                       
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <p>Время аренды</p>
+                            <small>Не менее 5 часов </small>
+                        </div>                      
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <span>5</span>
+                                <button onclick="">+</button>
+                        </div>
+                   </div>     
+                   <div class="form__data col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">                       
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">     
+                            <p>Пропуск в центр:</p>
+                            <small>пределы 3 кольца</small>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <select>
+                                <option>Да</option>
+                                <option>Нет</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form__data col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">                       
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">  
+                            <p>от МКАД</p>
+                            <small>за МКАД 15руб.км</small>
+                        </div>
+                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <button onclick="calcData.addDistance(15)">+</button>
+                                <span>0</span>
+                                <button onclick="calcData.removeDistance(15)">-</button>
+                         </div>
+                    </div>
+                </div>
+                <div class="form__workers col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <h3 class="text-center"> Грузчики </h3><hr>
+                    <div class="form__data col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <p>Количество</p>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <button onclick='calcPersonal.removePersonal(350)'>-</button>
+                                <span id="personal">0</span>
+                            <button onclick='calcPersonal.addPersonal(350)'>+</button>                        
+                        </div>
+                    </div>
+
+                    <div class="form__data col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            <p>Время работы</p>
+                            <small>не менее 4</small>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <button onclick="calcPersonal.removeTime(1)">-</button>
+                            <span id="time-counter">4</span>
+                            <button onclick="calcPersonal.addTime(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="form__total col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Сумма" id="total2">
+                            <span class="input-group-btn">
+                                <button onclick='calcPersonal.summPersonal()' class="btn btn-default" type="button">Рассчитать</button>
+                            </span>
+                        </div>
+                    </div>
+             </div>       
+                <div class="form__materials col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <h3 class="text-center"> Упаковочные материалы </h3>
+                    <hr>
+                    <div class="form__data col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            Пузырчатая плёнка
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <button onclick='calcData.removeBubbleSkin(150)' click='clickCounter()' id="minus1">-</button>
+                            <span id="span_counter1">0</span>
+                            <button onclick='calcData.addBubbleSkin(150)' click='clickCounter()' id="plus1">+</button>
+                        </div>
+                    </div>
+                    <div class="form__data col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            Коробка
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <button onclick='calcData.removeBox(100)'>-</button>
+                            <span id="form_counter2">0</span>
+                            <button onclick='calcData.addBox(100)'>+</button>
+                        </div>
+                    </div>
+                    <div class="form__data col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            Стрэйч плёнка
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <button onclick='calcData.removeSkin(90)'>-</button>
+                            <span id="form_counter3">0</span>
+                            <button onclick='calcData.addSkin(90)'>+</button>
+                        </div>
+                    </div>
+                    <div class="form__data col-xs-10 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1">
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                            Картон
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <button onclick='calcData.removeCarton(190)'>-</button>
+                            <span>0</span>
+                            <button onclick='calcData.addCarton(190)'>+</button>
+                        </div>
+                    </div>
+                    <div class="form__total col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Сумма" id="total">
+                                <span class="input-group-btn">
+                                    <button onclick='calcData.getCounter()' class="btn btn-default" type="button">Рассчитать</button>
+                                </span>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form__footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        </div>
+
+
+    </div>
+
+
+
+    <!-- <button onclick='calcData.getCounter()'>Итог</button>
+    <input type="text" id="total" class="form-control" style="width: 100px;"> -->
+
+
+
+
+    <script>
+
+
+
+
+
+        var calcData = (function () {
+            var count = 0;
+            var interface = {};
+
+            interface.addBubbleSkin = function (e) {
+                count += e;
+                console.log('+ Пузырчатая плёнка: ' + count);
+            };
+
+            interface.removeBubbleSkin = function (e) {
+                count -= e;
+                console.log('- Пузырчатая плёнка: ' + count);
+            };
+
+            interface.addBox = function (e) {
+                count += e;
+                console.log('+ коробка: ' + count);
+            };
+
+            interface.removeBox = function (e) {
+                count -= e;
+                console.log('- коробка: ' + count);
+            };
+
+
+            interface.addSkin = function (e) {
+                count += e;
+                console.log('+ Стрэйч плёнка: ' + count);
+            };
+
+            interface.removeSkin = function (e) {
+                count -= e;
+                console.log('- Стрэйч плёнка: ' + count);
+            };
+
+            interface.addCarton = function (e) {
+                count += e;
+                console.log('+ Картон: ' + count);
+            };
+
+            interface.removeCarton = function (e) {
+                count -= e;
+                console.log('- Картон: ' + count);
+            };
+
+
+            interface.getCounter = function () {
+                document.getElementById('total').value = count;
+                console.log(count);
+                return count;
+            }
+
+            return interface;
+        })();
+
+        var calcPersonal = (function () {
+            var i = 0;
+            var pcount = 0;
+            var time = 4;
+            var summ;
+            var interface = {};
+
+            interface.addPersonal = function (e) {
+                pcount += e;
+                i++;
+                console.log('+ Грузчик: ' + pcount);
+                console.log(i);
+            };
+
+            interface.removePersonal = function (e) {
+                pcount -= e;
+                i--;
+                console.log('- Грузчик: ' + pcount);
+                console.log(i);
+            };
+
+            interface.addTime = function (e) {               
+                time += e;
+                console.log(time);
+            }
+            interface.removeTime = function (e) {               
+                time -= e;
+                console.log(time);
+            }
+
+            interface.summPersonal = function () {
+                summ = pcount * time;
+                document.getElementById('total2').value = summ;               
+                console.log(summ);
+                return summ;
+            }
+
+            interface.getCounter = function () {
+                document.getElementById('').value = pcount;                
+                console.log(pcount);
+                return pcount, i;
+            }
+
+            return interface;
+        })();
+
+    </script>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
