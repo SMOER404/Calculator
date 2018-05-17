@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+
+    <body>
+        <div class="form__container container-fluid">
+            <div class="row">
+                <div class="form__form-data col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form__auto col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="form__head col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <header class="form__header">
+                                <img src="img/auto.png" class="hidden-xs"> Автомобиль
+                            </header>
+                        </div>
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form__data-text col-xs-12 col-sm-6 col-md- col-lg-8">
+                                <p>газель</p>
+                            </div>
+                            <div class="form__data-button col-xs-12 col-sm-6 col-md- col-lg-4">
+                                <select id="form__data-select">
+                                    <option id="gazelle">Газель</option>
+                                    <option id="gazelle-long">Удл. газель</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form__data-text col-xs-12 col-sm-6 col-md-6 col-lg-8">
+                                <p>время аренды</p>
+                                 <small>Не менее 5 часов </small>
+                            </div>
+                            <div class="form__data-button col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                <button onclick="">-</button>
+                                <span>5</span>
+                                <button onclick="">+</button>
+                            </div>
+                        </div>
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form__data-text col-xs-12 col-sm-6 col-md-6 col-lg-8">
+                                <p>пропуск в центр:</p>
+                                <small>пределы 3 кольца</small>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                <select>
+                                    <option>Да</option>
+                                    <option>Нет</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
+                            <div class="form__data-text col-xs-12 col-sm-6 col-md-6 col-lg-8">
+                                <p>от МКАД</p>
+                                <small>за МКАД 15руб.км</small>
+                            </div>
+                            <div class="form__data-button col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                <button onclick="calcData.addDistance(15)">+</button>
+                                <span>0</span>
+                                <button onclick="calcData.removeDistance(15)">-</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__workers col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+                        <div class="form__head col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <header class="form__header">
+                                <img src="img/stevedores.png" class="hidden-xs">
+                                 Грузчики
+                            </header>
+                        </div>
+
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
+                            <div class="form__data-text col-xs-12 col-sm-6 col-md-8 col-lg-8">
+                                <p>количество</p>
+                            </div>
+                            <div class="form__data-button col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                <button onclick='calcPersonal.removePersonal(350)'>-</button>
+                                <span id="personal">0</span>
+                                <button onclick='calcPersonal.addPersonal(350)'>+</button>
+                            </div>
+                        </div>
+
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                            <div class="form__data-text col-xs-12 col-sm-6 col-md-8 col-lg-8">
+                                <p>время работы</p>
+                                <small>не менее 4</small>
+                            </div>
+                            <div class="form__data-button col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                <button onclick="calcPersonal.removeTime(1)">-</button>
+                                <span id="time">4</span>
+                                <button onclick="calcPersonal.addTime(1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__materials col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                        <div class="form__head col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <header class="form__header">
+                                <img src="img/materials.png" class="hidden-xs"> 
+                                Упаковочные материалы
+                            </header>
+                        </div>
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
+                            <div class="form__data-text col-xs-8 col-sm-6 col-md-6   col-lg-8">
+                                <p>коробка</p>
+                            </div>
+                            <div class="form__data-button col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                <button onclick='calcData.removeBox(100)'>-</button>
+                                <span id="span2">0</span>
+                                <button onclick='calcData.addBox(100)'>+</button>
+                            </div>                            
+                        </div>
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
+                            <div class="form__data-text col-xs-12 col-sm-6 col-md-6 col-lg-8">
+                                <p>пузырчатая плёнка</p>
+                            </div>
+                            <div class="form__data-button col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                <button onclick='calcData.removeBubbleSkin(150)' click='clickCounter()' id="minus1">-</button>
+                                <span id="span1">0</span>
+                                <button onclick='calcData.addBubbleSkin(150)' click='clickCounter()' id="plus1">+</button>
+                            </div>
+                        </div>                        
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form__data-text col-xs-12 col-sm-6 col-md-6 col-lg-8">
+                                <p>стрейч-плёнка</p>
+                            </div>
+                            <div class="form__data-button col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                <button onclick='calcData.removeSkin(90)'>-</button>
+                                <span id="span3">0</span>
+                                <button onclick='calcData.addSkin(90)' click="calcCounter()">+</button>
+                            </div>
+                        </div>
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
+                            <div class="form__data-text col-xs-12 col-sm-6 col-md-6 col-lg-8">
+                                <p>картон(лист)</p>
+                            </div>
+                            <div class="form__data-button col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                <button onclick='calcData.removeCarton(190)'>-</button>
+                                <span id="span4">0</span>
+                                <button onclick='calcData.addCarton(190)'>+</button>
+                            </div>
+                        </div>
+                        <div class="form__data col-xs-12 col-sm-12 col-md-12 col-lg-12  ">
+                            <div class="form__data-text col-xs-12 col-sm-6 col-md-6 col-lg-8">
+                                <p>скотч</p>
+                            </div>
+                            <div class="form__data-button col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                <button onclick='calcData.removeSkotch(30)'>-</button>
+                                <span id="span5">0</span>
+                                <button onclick='calcData.addSkotch(30)'>+</button>
+                            </div>
+                        </div>      
+                        
+                        <div class="footer__link-price col-xs-5 col-sm-5 col-md-5 col-lg-5 col-lg-offset-7 col-md-offset-7 col-sm-offset-7">
+                            <a>полный прайс</a>
+                        </div>                                       
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="form__footer col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="form__total-value col-xs-12 col-sm-12 col-md-8 col-lg-8 col-lg-offset-1 col-md-offset-1">
+                       <h3>итого:       
+                       <input type="text" id="total" class="input-lg pull-right" style="border:none;background: none;"> 
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <button class="btn btn-md btn-warning pull-right" onclick="calcData.getCounter()"> 
+                            Заказать сейчас
+                        </button>
+
+                    </div>
+                </div>
+                <div class="form__footer-button">
+                    <button type="button" class="form__footer-btn btn-xs hidden-xs pull-left">
+                        <span class="form__button-close glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+
+</html>
